@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechKart — Full Stack E-Commerce Store | CodeAlpha</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-wrapper">
+      <div class="brand" id="homeLogo">
+        <span class="brand-badge">TK</span>
+        <div>
+          <h1>TechKart</h1>
+          <small>Creator & Dev Gear Store</small>
+        </div>
+      </div>
+
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search keyboards, mics, stands..." />
+        <select id="categoryFilter">
+          <option value="All">All Categories</option>
+          <option value="Peripherals">Peripherals</option>
+          <option value="Audio">Audio</option>
+          <option value="Accessories">Accessories</option>
+        </select>
+      </div>
+
+      <div class="nav-actions">
+        <button class="btn-secondary" id="ordersBtn">My Orders</button>
+        <button class="btn-secondary" id="authBtn">Login / Sign Up</button>
+        <button class="btn-primary" id="cartBtn">
+          Cart (<span id="cartCount">0</span>)
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    <section class="hero-banner">
+      <div>
+        <span class="tag">CodeAlpha Full-Stack Project</span>
+        <h2>Upgrade Your Desk & Coding Setup</h2>
+        <p>Handpicked mechanical keyboards, studio mics, and ergonomic accessories with instant order tracking.</p>
+      </div>
+      <div class="user-greeting" id="userStatusBox">
+        Viewing as Guest
+      </div>
+    </section>
+
+    <section id="catalogSection">
+      <div class="section-header">
+        <h3>Available Products</h3>
+        <span id="resultCount" class="muted-text">Loading items...</span>
+      </div>
+      <div id="productGrid" class="product-grid"></div>
+    </section>
+  </main>
+
+  <!-- Product Details Modal -->
+  <div class="modal-backdrop hidden" id="detailsModal">
+    <div class="modal-card">
+      <button class="close-btn" data-close="detailsModal">&times;</button>
+      <div id="detailsContent"></div>
+    </div>
+  </div>
+
+  <!-- Cart & Checkout Modal -->
+  <div class="modal-backdrop hidden" id="cartModal">
+    <div class="modal-card">
+      <button class="close-btn" data-close="cartModal">&times;</button>
+      <h3>Your Shopping Cart</h3>
+      <div id="cartItemsList" class="cart-list"></div>
+      <div class="cart-summary" id="cartSummaryBox">
+        <div class="total-row">
+          <span>Total Payable:</span>
+          <strong id="cartTotalValue">₹0</strong>
+        </div>
+        <form id="checkoutForm" class="checkout-form">
+          <label>Delivery Address (Hostel / Flat / City & PIN)</label>
+          <textarea id="shippingAddress" rows="2" placeholder="e.g., Block B Hostel, Waghodia Road, Vadodara - 391760" required></textarea>
+          <label>Payment Method</label>
+          <select id="paymentMethod">
+            <option value="UPI (GPay / PhonePe)">UPI (GPay / PhonePe)</option>
+            <option value="Cash on Delivery (COD)">Cash on Delivery (COD)</option>
+            <option value="Debit / Credit Card">Debit / Credit Card</option>
+          </select>
+          <button type="submit" class="btn-primary full-width">Place Order</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Auth Modal -->
+  <div class="modal-backdrop hidden" id="authModal">
+    <div class="modal-card small-modal">
+      <button class="close-btn" data-close="authModal">&times;</button>
+      <div class="auth-tabs">
+        <button class="tab-btn active" id="tabLogin">Login</button>
+        <button class="tab-btn" id="tabRegister">Register</button>
+      </div>
+      <form id="authForm">
+        <div id="nameFieldGroup" class="hidden">
+          <label>Full Name</label>
+          <input type="text" id="authName" placeholder="Shaquib Tanveer" />
+        </div>
+        <label>Email Address</label>
+        <input type="email" id="authEmail" placeholder="you@example.com" required />
+        <label>Password</label>
+        <input type="password" id="authPassword" placeholder="Minimum 6 characters" required />
+        <p id="authFeedback" class="feedback-msg"></p>
+        <button type="submit" class="btn-primary full-width" id="authSubmitBtn">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Orders History Modal -->
+  <div class="modal-backdrop hidden" id="ordersModal">
+    <div class="modal-card">
+      <button class="close-btn" data-close="ordersModal">&times;</button>
+      <h3>Order History</h3>
+      <div id="ordersList" class="orders-list"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Built by <strong>Shaquib Tanveer</strong> • CodeAlpha Full Stack Development Internship (Task 1)</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

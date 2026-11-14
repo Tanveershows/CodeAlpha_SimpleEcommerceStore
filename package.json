@@ -1,0 +1,16 @@
+{
+  "name": "codealpha-simple-ecommerce-store",
+  "version": "1.0.0",
+  "description": "Full stack e-commerce store built for CodeAlpha internship (Task 1)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "author": "Shaquib Tanveer <tanveershaquib@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  }
+}
